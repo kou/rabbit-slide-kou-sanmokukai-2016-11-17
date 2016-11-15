@@ -1,0 +1,23 @@
+---
+id: sanmokukai-2016-11-17
+base_name: mroonga
+tags:
+- rabbit
+- mroonga
+- 3moku
+presentation_date: 2016-11-17
+version: 2016.11.17.0
+licenses:
+- CC BY-SA 4.0
+slideshare_id: 
+speaker_deck_id: 
+ustream_id: 
+vimeo_id: 
+youtube_id: 
+author:
+  markup_language: :rd
+  name: Kouhei Sutou
+  email: kou@clear-code.com
+  rubygems_user: kou
+  slideshare_user: 
+  speaker_deck_user: 

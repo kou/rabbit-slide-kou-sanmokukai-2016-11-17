@@ -1,0 +1,365 @@
+= Mroonga開発者が\n来たぞ！
+
+: author
+   須藤功平
+: institution
+   クリアコード
+: content-source
+   三木会
+: date
+   2016-11-17
+: allotted-time
+   2h
+: theme
+   .
+
+= Mroonga
+
+  * 読み方：むるんが
+
+  * ストレージエンジン
+
+  * (('wait'))MySQL 5.7対応\n
+    (('note:もちろん5.5, 5.6も対応'))
+
+  * (('wait'))MariaDB 10.2対応\n
+    (('note:もちろん5.5, 10.0, 10.1も対応'))
+    * 10.0以降はバンドルもされている
+
+= 特徴
+
+  * (('wait'))
+    高速日本語全文検索(('note:（全言語OK）'))\n
+    (('note:MySQL 5.6以前は日本語未対応'))\n
+    (('note:5.7以降は日本語対応しているが遅い'))
+  * (('wait'))
+    カラムストアによる高速処理
+  * (('wait'))
+    全文検索初心者でも使える
+  * (('wait'))
+    全文検索上級者は活用できる
+
+= 高速日本語全文検索
+
+  (1) ベンチマーク
+  (2) 速さの秘密
+
+= ベンチマーク環境
+
+  * 対象：Wikipedia日本語版
+  * レコード数：約185万件
+  * データサイズ：約7GB
+  * メモリー4GB・SSD250GB(('note:（ConoHa）'))
+
+= 補足
+
+  * MySQL 5.7を使用
+  * 他人のベンチマークは参考程度
+    * 検討時は実環境でベンチマークを！
+
+(('note:詳細：'))\n
+(('note:https://github.com/groonga/wikipedia-search/issues/4'))
+
+= 検索1
+
+(('tag:center'))
+キーワード：テレビアニメ\n
+(('note:（ヒット数：約2万3千件）'))
+
+  # RT
+  delimiter = [|]
+
+  InnoDB ngram | 3m2s
+  InnoDB MeCab | 6m20s
+  Mroonga:((*1*)) | 0.11s
+
+= 検索2
+
+(('tag:center'))
+キーワード：データベース\n
+(('note:（ヒット数：約1万7千件）'))
+
+  # RT
+  delimiter = [|]
+
+  InnoDB ngram | 36s
+  InnoDB MeCab:((*1*)) | 0.03s
+  Mroonga:((*2*)) | 0.09s
+
+= 検索3
+
+(('tag:center'))
+キーワード：PostgreSQL OR MySQL\n
+(('note:（ヒット数：約400件）'))
+
+  # RT
+  delimiter = [|]
+
+  InnoDB ngram | N/A(Error)
+  InnoDB MeCab:((*1*)) | 0.005s
+  Mroonga:((*2*)) | 0.028s
+
+= 検索4
+
+(('tag:center'))
+キーワード：日本\n
+(('note:（ヒット数：約63万件）'))
+
+  # RT
+  delimiter = [|]
+
+  InnoDB ngram | 1.3s
+  InnoDB MeCab | 1.3s
+  Mroonga:((*1*)) | 0.21s
+
+= 検索まとめ
+
+  * (('wait'))Mroonga：安定して速い
+  * (('wait'))InnoDB FTS MeCab
+    * ハマれば速い
+  * (('wait'))InnoDB FTS ngram
+    * 安定して遅い
+
+= 速さの秘密
+
+  * 最適化された転置索引実装\n
+    * (('wait'))2段階のデータ圧縮
+    * (('wait'))高速なポスティングリスト探索
+    * (('wait'))検索だけでなく更新も速い
+
+(('wait'))
+(('note:11年以上開発が続いている全文検索エンジンGroongaを使用'))
+
+= もっと速さの秘密
+
+  * カラムストアを活かした最適化
+    * ポイント1：余計なI/Oを減らす
+    * ポイント2：I/Oを局所化
+
+= カラムストア
+
+  # image
+  # src = images/column-store.svg
+  # relative_width = 100
+
+= 必要なカラムのみアクセス
+
+  # coderay sql
+  -- aのみにアクセス
+  SELECT a
+    FROM table
+  -- cのみにアクセス
+   WHERE c = XXX;
+  -- bにはアクセスしない
+
+= 減ったI/O
+
+  # image
+  # src = images/not-access-to-needless-columns.svg
+  # relative_width = 100
+
+= 行カウント\n(('note:Row count'))
+
+  # coderay sql
+  -- No column values are needed
+  SELECT COUNT(*)
+    FROM table
+  -- Access to only full text search index of c
+   WHERE MATCH(c)
+       AGAINST('+keyword' IN BOOLEAN MODE);
+  -- a, b and c aren't accessed
+
+= 減ったI/O\n(('note:Reduced I/O'))
+
+  # image
+  # src = images/count-star.svg
+  # relative_height = 100
+
+= (({ORDER BY LIMIT}))
+
+  # coderay sql
+  SELECT *
+    FROM table
+   WHERE MATCH(c)
+       AGAINST('+keyword' IN BOOLEAN MODE)
+  -- Mroonga processes ORDER BY LIMIT
+  -- instead of MariaDB
+  -- → Mroonga returns only 10 records
+  --    to MariaDB instead of all matched records
+   ORDER BY a LIMIT 10;
+
+= Optimized (({ORDER BY LIMIT}))
+
+  * (('wait'))検索(('note:(Search)')) by Mroonga
+    * カラム毎の処理でI/Oを局所化\n
+      (('note:（索引非使用時）'))\n
+      (('note:Localize I/O by per column processing'))\n
+      (('note:(on no index case)'))
+  * (('wait'))ソート(('note:(Sort)')) by Mroonga
+    * カラム毎の処理でI/Oを局所化\n
+      (('note:Localize I/O by per column processing'))
+  * (('wait'))(({OFFSET}))/(({LIMIT})) by Mroonga
+
+= カラム毎の処理は速い\n(('note:Per column processing is fast'))
+
+  # image
+  # src = images/per-column-processing.svg
+  # relative_height = 100
+
+= 最適化のまとめ\n(('note:Wrap up optimization'))
+
+  * 転置索引実装が速い\n
+    (('note:Inverted index implementation is fast'))
+    * 検索も更新も速い\n
+      (('note:Both search and update are fast'))
+  * カラムストアで速い\n
+    (('note:Fast by column store architecture'))
+    * ポイント：I/O削減・I/O局所化\n
+      (('note:Points: Reduce and localize I/O'))
+
+= 全文検索初心者でも使える\n(('note:Easy to use by beginners'))
+
+  * (('wait'))インストールが簡単\n
+    (('note:Easy to install'))
+  * (('wait'))MySQLの標準機能のみで使える\n
+    (('note:Usable only with MySQL standard features'))
+
+= インストールが簡単\n(('note:Easy to install'))
+
+  * (('wait'))MariaDBバンドル\n
+    (('note:MariaDB bundles Mroonga'))
+  * (('wait'))Apt/Yumリポジトリー\n
+    (('note:Apt/Yum repositories'))
+  * (('wait'))MariaDB込みのWindowsバイナリ\n
+    (('note:Windows binary with MariaDB'))
+
+= 標準機能のみで使える\n(('note:Require only MySQL standard features'))
+
+  # coderay sql
+  -- Create
+  CREATE TABLE table (
+    -- ...,
+    FULLTEXT INDEX (column)
+  ) ENGINE=Mroonga;
+
+= 標準機能のみで使える\n(('note:Require only MySQL standard features'))
+
+  # coderay sql
+  -- Convert
+  ALTER TABLE table
+    ADD FULLTEXT INDEX (column)
+    ENGINE=Mroonga;
+
+= 標準機能のみで使える\n(('note:Require only MySQL standard features'))
+
+  # coderay sql
+  SELECT * FROM table
+    WHERE
+      MATCH(column)
+      AGAINST('+keyword'
+              IN BOOLEAN MODE);
+
+= 全文検索上級者向け機能\n(('note:Features for specialists'))
+
+  * (('wait'))
+    カスタマイズ\n
+    (('note:Customizable'))
+    * デフォルト値はいい感じ\n
+      →初心者はカスタマイズなしでよい\n
+      (('note:Suitable default values'))\n
+      (('note:→Beginners don't need to customize'))
+  * (('wait'))
+    Groongaの機能をもっと使える\n
+    (('note:（高速・高機能）'))\n
+    (('note:Specialists can use more Groonga features'))\n
+    (('note:(Fast and high functionality)'))
+
+= 文字正規化ルール変更\n(('note:Change normalizer'))
+
+  # coderay sql
+  CREATE TABLE table (
+    -- ...,
+    FULLTEXT INDEX (column)
+      --
+      -- Specify a parameter as comment
+      COMMENT='normalizer "NormalizerAuto"'
+  ) ENGINE=Mroonga;
+
+= 文字正規化ルール変更\n(('note:Change normalizer'))
+
+  # coderay sql
+  CREATE TABLE table (
+    -- ...,
+    FULLTEXT INDEX (column)
+      -- MariaDB:                          
+      -- Custom parameter can be used
+      NORMALIZER='NormalizerAuto'
+  ) ENGINE=Mroonga;
+
+= Groongaの検索機能を使う\n(('note:Use full Groonga search features'))
+
+  # coderay sql
+  SELECT * FROM table
+    WHERE
+      -- "c1" is meaningless with "*SS" pragma
+      MATCH(c1)
+      -- "*SS" is a pragma to use
+      -- full Groonga search features
+      -- Multiple indexes can be used in A query
+      AGAINST('*SS c1 @ "keyword" && c2 < 100'
+              IN BOOLEAN MODE);
+
+= 今後\n(('note:Futures'))
+
+  * (('wait'))
+    最新機能サポート\n
+    (('note:Support the latest features'))
+    * JSONを全文検索\n
+      (('note:（JSON型のデータの読み書きは対応済み）'))\n
+      (('note:Full text search against JSON'))\n
+      (('note:(Storing/fetching JSON are already supported)'))
+    * virtual column/generated column
+  * (('wait'))
+    最新版をMariaDBにバンドル\n
+    (('note:Bundle the latest Mroonga to MariaDB'))
+
+= 最新版をバンドル\n(('note:Bundle the latest Mroonga'))
+
+  * (('wait'))
+    Mroongaは毎月リリース\n
+    (('note:Mroonga is released monthly'))
+  * (('wait'))
+    MariaDB 10.2.1 bundles Mroonga ((*5.04*))
+    * The latest Mroonga is 6.06
+    * Mroonga supports MariaDB 10.2 since ((*6.03*))
+    * How can we improve this?
+
+= まとめ1\n(('note:Wrap up1'))
+
+  * (('wait'))
+    高速日本語全文検索(('note:（全言語OK）'))\n
+    (('note:Super fast full text search for all languages'))
+  * (('wait'))
+    カラムストアによる高速処理\n
+    (('note:Super fast processing by column store architecture'))
+  * (('wait'))
+    全文検索初心者でも使える\n
+    (('note:Easy to use by full text search beginners'))
+  * (('wait'))
+    全文検索上級者は活用できる\n
+    (('note:Features for full text search specialists'))
+
+= まとめ2\n(('note:Wrap up2'))
+
+  * (('wait'))
+    今後もMroongaは便利になる\n
+    (('note:We continue to improve Mroonga'))
+  * (('wait'))
+    MariaDBで最新Mroongaを使える\n
+    (('note:MariaDB will bundle the latest Mroonga'))
+
+(('wait'))
+MariaDBで全文検索ならMroonga！\n
+(('note:Mroonga is the best for full text search on MariaDB!'))
+
+
