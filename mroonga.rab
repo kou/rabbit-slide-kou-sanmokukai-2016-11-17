@@ -158,22 +158,22 @@
   # src = images/not-access-to-needless-columns.svg
   # relative_width = 100
 
-= 行カウント\n(('note:Row count'))
+= 行カウント
 
   # coderay sql
-  -- No column values are needed
+  -- カラムの値は必要ない
   SELECT COUNT(*)
     FROM table
-  -- Access to only full text search index of c
+  -- cの全文検索インデックスにだけアクセス
    WHERE MATCH(c)
        AGAINST('+keyword' IN BOOLEAN MODE);
-  -- a, b and c aren't accessed
+  -- a, b, cはアクセスしない
 
-= 減ったI/O\n(('note:Reduced I/O'))
+= 減ったI/O
 
   # image
   # src = images/count-star.svg
-  # relative_height = 100
+  # relative_weight = 100
 
 = (({ORDER BY LIMIT}))
 
@@ -182,23 +182,19 @@
     FROM table
    WHERE MATCH(c)
        AGAINST('+keyword' IN BOOLEAN MODE)
-  -- Mroonga processes ORDER BY LIMIT
-  -- instead of MariaDB
-  -- → Mroonga returns only 10 records
-  --    to MariaDB instead of all matched records
+  -- MySQLではなくMroongaがORDER BY LIMITを処理
+  -- →Mroongaは10レコードだけMySQLに返す
+  --   マッチしたレコードすべては返さない
    ORDER BY a LIMIT 10;
 
-= Optimized (({ORDER BY LIMIT}))
+= (({ORDER BY LIMIT}))の最適化
 
-  * (('wait'))検索(('note:(Search)')) by Mroonga
+  * (('wait'))Mroongaが検索
     * カラム毎の処理でI/Oを局所化\n
-      (('note:（索引非使用時）'))\n
-      (('note:Localize I/O by per column processing'))\n
-      (('note:(on no index case)'))
-  * (('wait'))ソート(('note:(Sort)')) by Mroonga
-    * カラム毎の処理でI/Oを局所化\n
-      (('note:Localize I/O by per column processing'))
-  * (('wait'))(({OFFSET}))/(({LIMIT})) by Mroonga
+      (('note:（索引非使用時）'))
+  * (('wait'))Mroongaがソート
+    * カラム毎の処理でI/Oを局所化
+  * (('wait'))Mroongaが(({OFFSET}))/(({LIMIT}))を処理
 
 = カラム毎の処理は速い\n(('note:Per column processing is fast'))
 
