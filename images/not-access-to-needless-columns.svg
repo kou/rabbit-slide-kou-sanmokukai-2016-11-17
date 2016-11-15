@@ -82,15 +82,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="-11.97618"
-     inkscape:cy="350.9871"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="631.87585"
+     inkscape:cy="287.5503"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
-     inkscape:window-x="1920"
+     inkscape:window-width="1366"
+     inkscape:window-height="704"
+     inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="5"
@@ -105,7 +105,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -124,7 +124,7 @@
          sodipodi:role="line"
          id="tspan8072"
          x="37.470554"
-         y="90.069565">Columns</tspan></text>
+         y="90.069565">カラム</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -136,7 +136,7 @@
          sodipodi:role="line"
          id="tspan8076"
          x="-267.87207"
-         y="-48.630936">Rows</tspan></text>
+         y="-48.630936">行</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -206,102 +206,102 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="20.213366"
+       x="12.213366"
        y="187.33659"
        id="text8111"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8113"
-         x="20.213366"
-         y="187.33659">V</tspan></text>
+         x="12.213366"
+         y="187.33659">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8115"
        y="187.33659"
-       x="74.523338"
+       x="66.523338"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          y="187.33659"
-         x="74.523338"
+         x="66.523338"
          id="tspan8117"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="128.85176"
+       x="120.85176"
        y="187.33659"
        id="text8119"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8121"
-         x="128.85176"
-         y="187.33659">V</tspan></text>
+         x="120.85176"
+         y="187.33659">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8123"
        y="253.33659"
-       x="20.213366"
+       x="12.213366"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          y="253.33659"
-         x="20.213366"
+         x="12.213366"
          id="tspan8125"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="75.351761"
+       x="67.351761"
        y="253.33659"
        id="text8127"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8129"
-         x="75.351761"
-         y="253.33659">V</tspan></text>
+         x="67.351761"
+         y="253.33659">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8131"
        y="253.33659"
-       x="129.9426"
+       x="121.9426"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          y="253.33659"
-         x="129.9426"
+         x="121.9426"
          id="tspan8133"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="20.213366"
+       x="12.213366"
        y="315.83661"
        id="text8135"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8137"
-         x="20.213366"
-         y="315.83661">V</tspan></text>
+         x="12.213366"
+         y="315.83661">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8139"
        y="315.83661"
-       x="76.801514"
+       x="68.801514"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          y="315.83661"
-         x="76.801514"
+         x="68.801514"
          id="tspan8141"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="130.6497"
+       x="122.6497"
        y="315.83661"
        id="text8143"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8145"
-         x="130.6497"
-         y="315.83661">V</tspan></text>
+         x="122.6497"
+         y="315.83661">値</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m -2.083264,107.3622 0,230.10051"
@@ -324,7 +324,7 @@
          y="90.069565"
          x="537.55383"
          id="tspan8255"
-         sodipodi:role="line">Columns</tspan></text>
+         sodipodi:role="line">カラム</tspan></text>
     <text
        transform="matrix(0,-1,1,0,0,0)"
        sodipodi:linespacing="125%"
@@ -336,7 +336,7 @@
          y="437.96704"
          x="-267.87207"
          id="tspan8259"
-         sodipodi:role="line">Rows</tspan></text>
+         sodipodi:role="line">行</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8261"
@@ -413,7 +413,7 @@
          y="187.33659"
          x="520.29663"
          id="tspan8287"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -424,7 +424,7 @@
          sodipodi:role="line"
          id="tspan8291"
          x="574.60657"
-         y="187.33659">V</tspan></text>
+         y="187.33659">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8293"
@@ -435,7 +435,7 @@
          y="187.33659"
          x="628.935"
          id="tspan8295"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -446,7 +446,7 @@
          sodipodi:role="line"
          id="tspan8299"
          x="520.29663"
-         y="253.33659">V</tspan></text>
+         y="253.33659">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8301"
@@ -457,7 +457,7 @@
          y="253.33659"
          x="575.435"
          id="tspan8303"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -468,7 +468,7 @@
          sodipodi:role="line"
          id="tspan8307"
          x="630.02588"
-         y="253.33659">V</tspan></text>
+         y="253.33659">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8309"
@@ -479,7 +479,7 @@
          y="315.83661"
          x="520.29663"
          id="tspan8311"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -490,7 +490,7 @@
          sodipodi:role="line"
          id="tspan8315"
          x="576.88477"
-         y="315.83661">V</tspan></text>
+         y="315.83661">値</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8317"
@@ -501,7 +501,7 @@
          y="315.83661"
          x="630.73297"
          id="tspan8319"
-         sodipodi:role="line">V</tspan></text>
+         sodipodi:role="line">値</tspan></text>
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
@@ -562,7 +562,7 @@
          sodipodi:role="line"
          x="82.575394"
          y="383.02518"
-         id="tspan8339">Per column</tspan></text>
+         id="tspan8339">カラムごと</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8341"
@@ -573,7 +573,7 @@
          y="94.216759"
          x="338.16293"
          id="tspan8343"
-         sodipodi:role="line">InnoDB etc</tspan></text>
+         sodipodi:role="line">InnoDB他</tspan></text>
     <rect
        ry="5"
        rx="5"
@@ -608,35 +608,35 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="79.90786"
-       y="429.40387"
+       y="435.40387"
        id="text8357"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          x="79.90786"
-         y="429.40387"
-         id="tspan8361">Column</tspan></text>
+         y="435.40387"
+         id="tspan8361">カラム</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8367"
-       y="429.52518"
+       y="435.52518"
        x="567.90491"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          id="tspan8371"
-         y="429.52518"
+         y="435.52518"
          x="567.90491"
-         sodipodi:role="line">Row</tspan></text>
+         sodipodi:role="line">行</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="188.57152"
+       x="220.57152"
        y="383.1377"
        id="text8373"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan8375"
-         x="188.57152"
-         y="383.1377">Value manage unit</tspan></text>
+         x="220.57152"
+         y="383.1377">値の管理単位</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8407"
@@ -647,18 +647,18 @@
          id="tspan8409"
          y="384.38913"
          x="568.08716"
-         sodipodi:role="line">Per row</tspan></text>
+         sodipodi:role="line">行ごと</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text8411"
-       y="428.72702"
-       x="202.24052"
+       y="434.72702"
+       x="170.24052"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:125%;font-family:Sans;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         y="428.72702"
-         x="202.24052"
+         y="434.72702"
+         x="170.24052"
          id="tspan8413"
-         sodipodi:role="line">Fast access unit</tspan></text>
+         sodipodi:role="line">高速なアクセス単位</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#888a85;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 323.18747,66.595237 0,282.221393"
@@ -688,15 +688,13 @@
        ry="5" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:34px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;text-anchor:start;text-align:start;writing-mode:lr;"
        x="193.12146"
        y="171.44681"
        id="text4230"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan4232"
-         x="193.12146"
-         y="171.44681">Not accessed</tspan></text>
+         id="tspan3442">アクセスしない</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
        d="m 183.50055,155.80423 -74.03553,0"
