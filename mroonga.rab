@@ -173,7 +173,7 @@
 
   # image
   # src = images/count-star.svg
-  # relative_weight = 100
+  # relative_width = 100
 
 = (({ORDER BY LIMIT}))
 
